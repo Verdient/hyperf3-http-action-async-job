@@ -1,0 +1,23 @@
+{
+    "name": "verdient/hyperf3-http-action-async-job",
+    "type": "library",
+    "require": {
+        "hyperf/contract": "^3.2",
+        "verdient/hyperf3-http-action": "^2.0",
+        "verdient/hyperf3-job": "^2.0",
+        "verdient/job": "^0.0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Verdient\\Hyperf3\\HttpAction\\Async\\Job\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Verdient\\Hyperf3\\HttpAction\\Async\\Job\\ConfigProvider"
+        }
+    }
+}
