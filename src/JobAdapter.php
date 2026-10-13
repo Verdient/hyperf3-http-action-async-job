@@ -42,7 +42,9 @@ class JobAdapter implements AdapterInterface
     {
         $job = new Job($asyncAction->class(), $asyncAction->params(), $asyncAction->properties());
 
-        $job->setQueue($asyncAction->queue());
+        if ($queue = $asyncAction->queue()) {
+            $job->setQueue($queue);
+        }
 
         return $this->adapter->push($job);
     }

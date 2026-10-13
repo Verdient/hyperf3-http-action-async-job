@@ -41,7 +41,7 @@ class AsyncAction implements AsyncActionInterface
      * @author Verdient。
      */
     #[Override]
-    public static function create(string $class, ?array $params, ?array $properties, ?string $queue = 'default'): static
+    public static function create(string $class, ?array $params, ?array $properties, ?string $queue): static
     {
         return new static($class, $params, $properties, $queue);
     }
@@ -77,7 +77,7 @@ class AsyncAction implements AsyncActionInterface
      * @author Verdient。
      */
     #[Override]
-    public function queue(): string
+    public function queue(): ?string
     {
         return $this->queue;
     }

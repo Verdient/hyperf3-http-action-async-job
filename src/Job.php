@@ -10,6 +10,7 @@ use Throwable;
 use Verdient\Hyperf3\HttpAction\Async\ApprovalInterface;
 use Verdient\Hyperf3\HttpAction\Async\Job\ApprovalPendingException;
 use Verdient\Hyperf3\HttpAction\Async\Job\ApprovalRejectException;;
+
 use Verdient\Hyperf3\HttpAction\Utils;
 use Verdient\Hyperf3\Job\AbstractJob;
 
@@ -25,7 +26,7 @@ class Job extends AbstractJob
      *
      * @author Verdient。
      */
-    protected string $queue = 'default';
+    protected string $queue;
 
     /**
      * @param string $class 类名
@@ -38,7 +39,9 @@ class Job extends AbstractJob
         public readonly string $class,
         public readonly ?array $params = null,
         public readonly ?array $properties = null
-    ) {}
+    ) {
+        $this->queue = parent::queue();
+    }
 
     /**
      * @author Verdient。
